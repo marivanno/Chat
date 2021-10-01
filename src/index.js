@@ -8,7 +8,7 @@ import App from './components/App.jsx';
 import 'core-js/stable/index.js';
 import 'regenerator-runtime/runtime.js';
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
-import './css/customstyle.css';
+import './css/main.css';
 
 import rootReducer from './reducers/index.js';
 

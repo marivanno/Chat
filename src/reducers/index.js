@@ -1,12 +1,12 @@
 import { combineReducers } from '@reduxjs/toolkit';
 
-import massageInfo from '../slices/massageInfo.js';
-import chanelsInfo from '../slices/chanelsInfo.js';
+import messageInfo from '../slices/messageInfo.js';
+import channelsInfo from '../slices/channelsInfo.js';
 import modal from '../slices/modalInfo.js';
 
 const rootReducer = combineReducers({
-  massageInfo,
-  chanelsInfo,
+  messageInfo,
+  channelsInfo,
   modal,
 });
 

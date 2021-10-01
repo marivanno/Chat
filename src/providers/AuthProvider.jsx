@@ -5,7 +5,6 @@ import getInitState from '../getInitialStateForAuthProvider.js';
 
 const AuthProvider = ({ children }) => {
   const [state, setState] = useState(getInitState());
-  console.log(state)
 
   const history = useHistory();
 

@@ -1,18 +1,19 @@
 import React from 'react';
-import Chanels from './Chat/Chanels.jsx';
-import Header from './Chat/Header.jsx';
-import FormForSendMassages from './Chat/FormForSendMassages.jsx';
-import MassageBox from './Chat/MassageBox.jsx';
+
+import Channels from '../components/Chat/Channels.jsx';
+import Header from '../components/Chat/Header.jsx';
+import FormForSendMessages from '../components/Chat/FormForSendMessages.jsx';
+import MessageBox from '../components/Chat/MessageBox.jsx';
 
 const Chat = () => (
   <div className="container h-100 my-4 overflow-hidden rounded shadow">
     <div className="row h-100 bg-white flex-md-row">
-      <Chanels />
+      <Channels />
       <div className="col p-0 h-100">
         <div className="d-flex flex-column h-100">
           <Header />
-          <MassageBox />
-          <FormForSendMassages />
+          <MessageBox />
+          <FormForSendMessages />
         </div>
       </div>
     </div>

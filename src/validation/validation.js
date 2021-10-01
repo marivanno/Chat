@@ -10,15 +10,15 @@ const loginSchema = Yup.object().shape({
 });
 
 const signupSchema = Yup.object().shape({
-  nickname: Yup.string()
+  username: Yup.string()
     .min(5, 'Слишком короткий логин!')
     .matches('^[a-zA-Z0-9]+$', 'Логин должен содержать только буквы и цифры')
     .required('Обязательно к заполнению'),
-  pass: Yup.string()
+  password: Yup.string()
     .min(5, 'Слишком короткий пароль!')
     .required('Обязательно к заполнению'),
   confimpass: Yup.string()
-    .oneOf([Yup.ref('pass')], 'Пароли не совпадают').required('Обязательно к заполнению')
+    .oneOf([Yup.ref('password')], 'Пароли не совпадают').required('Обязательно к заполнению')
 });
 
 

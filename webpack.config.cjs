@@ -11,6 +11,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
   },
+  devtool: 'eval-cheap-source-map',
   output: {
     path: path.join(__dirname, 'dist', 'public'),
     publicPath: '/assets/',

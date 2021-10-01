@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -10,7 +10,7 @@ import Login from '../pages/Login.jsx';
 import Signup from '../pages/Signup.jsx';
 import NoMatch from './NoMatch.jsx';
 import Nav from './Nav.jsx';
-import Chat from './Chat.jsx';
+import Chat from '../pages/Chat.jsx';
 
 import authContext from '../context/index.js';
 
