@@ -1,12 +1,14 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import authContext from '../context';
+import { authContext, socketContext } from '../context';
 
 const Nav = () => {
   const { logOut, loginInformation } = useContext(authContext);
+  const { disconnectSocket } = useContext(socketContext)
 
   const handlclickLogOut = () => {
     logOut();
+    disconnectSocket();
   };
 
   return (

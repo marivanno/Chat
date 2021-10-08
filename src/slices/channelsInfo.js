@@ -24,9 +24,24 @@ const channelsInfo = createSlice({
   reducers: {
     addChannels: (state, action) => {
       state.channels.push(action.payload);
+      state.currentChannelId = action.payload.id;
     },
     changeChannels: (state, action) => {
       state.currentChannelId = action.payload;
+    },
+    removeChannel: (state, action) => {
+      const newChannels = state.channels.filter((channel) => channel.id !== action.payload.id);
+      state.channels = newChannels;
+      state.currentChannelId = 1;
+    },
+    renameChannel: (state, action) => {
+      const newStateChannels = state.channels.map((channel) => {
+        if (channel.id === action.payload.id) {
+          channel.name = action.payload.name;
+        }
+        return channel;
+      });
+      state.channels = newStateChannels;
     },
   },
   extraReducers: {

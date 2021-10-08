@@ -1,20 +1,21 @@
 import React, { useContext, useRef, useEffect } from 'react';
-import _ from 'lodash';
 import { useFormik } from 'formik';
 
 import { connect } from 'react-redux';
-import authContext from '../../context/index.js';
+import { authContext, socketContext } from '../../context/index.js';
 import { actions } from '../../slices/messageInfo.js';
 
-const FormForSendMessages = ({ 
-  addMessage,
+const FormForSendMessages = ({
   channelsInfo,
 }) => {
   const { username } = useContext(authContext).loginInformation;
+  const { addNewMessage } = useContext(socketContext).socketActions;
   const inputMessage = useRef(null);
+
   useEffect(() => {
     inputMessage.current.focus();
   });
+
 
   const handleSubmit = (message) => {
     const messageForSend = {
@@ -22,7 +23,7 @@ const FormForSendMessages = ({
       channelId: channelsInfo.currentChannelId,
       username,
     };
-    addMessage(messageForSend);
+    addNewMessage(messageForSend);
   };
 
   const formik = useFormik({

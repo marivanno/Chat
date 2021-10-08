@@ -3,7 +3,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
   Redirect,
 } from 'react-router-dom';
 import Login from '../pages/Login.jsx';
@@ -12,7 +11,7 @@ import NoMatch from './NoMatch.jsx';
 import Nav from './Nav.jsx';
 import Chat from '../pages/Chat.jsx';
 
-import authContext from '../context/index.js';
+import { authContext } from '../context/index.js';
 
 import AuthProvider from '../providers/AuthProvider.jsx';
 

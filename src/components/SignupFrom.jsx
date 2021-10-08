@@ -4,7 +4,7 @@ import cn from 'classnames';
 import axios from 'axios';
 import routes from '../routes.js';
 import { signupSchema } from '../validation/validation.js';
-import authContext from '../context/index.js';
+import { authContext } from '../context/index.js';
 
 const SignupForm = () => {
   const { logIn } = useContext(authContext);

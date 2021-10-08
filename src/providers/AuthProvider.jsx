@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useLocation, useHistory } from 'react-router-dom';
-import authContext from '../context/index.js';
+import { useHistory } from 'react-router-dom';
+import { authContext } from '../context/index.js';
 import getInitState from '../getInitialStateForAuthProvider.js';
 
 const AuthProvider = ({ children }) => {

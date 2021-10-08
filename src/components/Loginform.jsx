@@ -1,12 +1,10 @@
-import React, {
-  useState, useEffect, useContext, createContext,
-} from 'react';
+import React, { useContext } from 'react';
 import { useFormik } from 'formik';
 import cn from 'classnames';
 import axios from 'axios';
 import { loginSchema } from '../validation/validation.js';
 import routes from '../routes.js';
-import authContext from '../context/index.js';
+import { authContext } from '../context/index.js';
 
 const Loginform = () => {
   const { logIn } = useContext(authContext);
@@ -63,7 +61,7 @@ const Loginform = () => {
           onChange={formik.handleChange}
           value={formik.values.password}
         />
-        <label htmlFor="password" >Пароль</label>
+        <label htmlFor="password">Пароль</label>
         {formik.errors.password ? (
           <div className="invalid-tooltip-custom">{formik.errors.password}</div>
         ) : null}

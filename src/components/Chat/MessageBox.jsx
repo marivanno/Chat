@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { connect } from 'react-redux';
 import { fetchMessages, selectActiveChannelMessages } from '../../slices/messageInfo.js';
 
@@ -14,8 +14,14 @@ const MessageBox = ({ messages, fetch }) => {
   useEffect(() => {
     fetch();
   }, []);
+  const elBox = useRef([]);
+
+  useEffect(() => {
+    elBox.current.scrollTop = elBox.current.scrollHeight;
+  }, [messages])
+
   return (
-    <div id="message-box" className="chat-messages overflow-auto px-5">
+    <div id="message-box" ref={elBox} className="chat-messages overflow-auto px-5">
       {messages.map((message, i) => {
         const { body, username } = message;
         return (

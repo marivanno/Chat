@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
-import authContext from '../context/index.js';
+import { authContext } from '../context/index.js';
 
 const Main = () => {
-  const content = useContext(authContext)
+  const content = useContext(authContext);
+  console.log(content)
   const handleClick = () => {
-    console.log(content)
   }
   return (
     <Link to="/login">
