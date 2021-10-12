@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useContext } from 'react';
+import { useTranslation } from 'react-i18next'
 import { useFormik } from 'formik';
 import { Modal, Button, Form } from 'react-bootstrap';
 import { connect } from 'react-redux';
@@ -13,6 +14,7 @@ const actions = {
 };
 
 const ModalWindowRename = ({ modal, closeModal, value }) => {
+  const { t } = useTranslation();
   const { isOpen } = modal;
   const { extra } = value;
   const { renameChannel } = useContext(socketContext).socketActions;
@@ -48,14 +50,14 @@ const ModalWindowRename = ({ modal, closeModal, value }) => {
     <Modal show={isOpen} onHide={handleClose} centered>
       <Form onSubmit={formik.handleSubmit}>
         <Modal.Header closeButton>
-          <Modal.Title>Хотите переименовать канал?</Modal.Title>
+          <Modal.Title>{t('modalWindows.renameChannel')}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <input
             name="name"
             id="name"
             ref={input}
-            placeholder="Введите название нового канала"
+            placeholder={t('modalWindows.placeholderNewChannel')}
             className="border-0 p-2 ps-2 form-control"
             onChange={formik.handleChange}
             value={formik.values.name}
@@ -66,13 +68,13 @@ const ModalWindowRename = ({ modal, closeModal, value }) => {
             variant="secondary"
             onClick={handleClose}
           >
-            Закрыть
+            {t('modalWindows.buttonClose')}
           </Button>
           <Button
             type="submit"
             variant="primary"
           >
-            Переименовать
+            {t('modalWindows.buttonRename')}
           </Button>
         </Modal.Footer>
       </Form>

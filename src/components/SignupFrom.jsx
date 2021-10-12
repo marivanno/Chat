@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
-import { ErrorMessage, useFormik } from 'formik';
+import { useFormik } from 'formik';
+import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 import axios from 'axios';
 import routes from '../routes.js';
@@ -8,7 +9,7 @@ import { authContext } from '../context/index.js';
 
 const SignupForm = () => {
   const { logIn } = useContext(authContext);
-
+  const { t } = useTranslation();
   const formik = useFormik({
     initialValues: {
       username: '',
@@ -18,8 +19,8 @@ const SignupForm = () => {
     validationSchema: signupSchema,
     onSubmit: async (values) => {
       try {
-        const data = await axios.post(routes.signupPath(), values);
-        const { token, username } = data.data;
+        const { data } = await axios.post(routes.signupPath(), values);
+        const { token, username } = data;
         logIn(token, username);
       } catch (error) {
         if (error.response.data.message === 'Conflict') {
@@ -39,11 +40,11 @@ const SignupForm = () => {
 
   return (
     <form className="col-12 col-md-6 mt-3 mt-mb-0" onSubmit={formik.handleSubmit}>
-      <h1 className="text-center mb-4">Регистрация</h1>
+      <h1 className="text-center mb-4">{t('loginForm.header')}</h1>
       <div className="form-floating mb-3 form-group">
         <input
           className={classesForFieldLogin}
-          placeholder="Имя пользователя"
+          placeholder={t('registrationForm.placeholderNik')}
           autoComplete="username"
           id="username"
           name="username"
@@ -51,7 +52,7 @@ const SignupForm = () => {
           onChange={formik.handleChange}
           value={formik.values.username}
         />
-        <label htmlFor="username">Имя пользователя</label>
+        <label htmlFor="username">{t('loginForm.placeholderNik')}</label>
         {formik.errors.username ? (
           <div className="invalid-tooltip-custom">
             {formik.errors.username}
@@ -63,14 +64,14 @@ const SignupForm = () => {
       >
         <input
           className={classesForFieldPass}
-          placeholder="Ваш пароль"
+          placeholder={t('registrationForm.placeholderPass')}
           id="password"
           name="password"
           type="text"
           onChange={formik.handleChange}
           value={formik.values.password}
         />
-        <label htmlFor="pass">Пароль</label>
+        <label htmlFor="pass">{t('registrationForm.placeholderPass')}</label>
         {formik.errors.password ? (
           <div className="invalid-tooltip-custom">
             {formik.errors.password}
@@ -82,14 +83,14 @@ const SignupForm = () => {
       >
         <input
           className={classesForFieldconfimpass}
-          placeholder="Повторите пароль"
+          placeholder={t('registrationForm.placeholderconfimPass')}
           id="confimpass"
           name="confimpass"
           type="text"
           onChange={formik.handleChange}
           value={formik.values.confimpass}
         />
-        <label htmlFor="passrepit">Подтвердите пароль</label>
+        <label htmlFor="passrepit">{t('registrationForm.placeholderconfimPass')}</label>
         {formik.errors.confimpass ? (
           <div className="invalid-tooltip-custom">
             {formik.errors.confimpass}
@@ -101,7 +102,7 @@ const SignupForm = () => {
         className="w-100 mb-3 btn btn-outline-primary br"
         disabled={Object.keys(formik.errors).length !== 0}
       >
-        Зарегестрироваться
+        {t('registrationForm.singnUp')}
       </button>
     </form>
   );

@@ -2,12 +2,15 @@ import React, { useContext, useRef, useEffect } from 'react';
 import { useFormik } from 'formik';
 
 import { connect } from 'react-redux';
+import { useTranslation } from 'react-i18next'
 import { authContext, socketContext } from '../../context/index.js';
 import { actions } from '../../slices/messageInfo.js';
 
 const FormForSendMessages = ({
-  channelsInfo,
+  channelsInfo, 
+  className,
 }) => {
+  const { t } = useTranslation();
   const { username } = useContext(authContext).loginInformation;
   const { addNewMessage } = useContext(socketContext).socketActions;
   const inputMessage = useRef(null);
@@ -40,7 +43,7 @@ const FormForSendMessages = ({
 
   return (
     <div
-      className="mt-auto px-5 py-3"
+      className={className}
     >
       <form
         className="py-1 border rounded-2"
@@ -51,7 +54,7 @@ const FormForSendMessages = ({
             name="messagefeild"
             id="messagefeild"
             ref={inputMessage}
-            placeholder="Введите сообщение..."
+            placeholder={t('messageChat.placeholderForMassege')}
             className="border-0 p-0 ps-2 form-control"
             onChange={formik.handleChange}
             value={formik.values.messagefeild}

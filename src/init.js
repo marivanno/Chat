@@ -6,9 +6,9 @@ import SocketProvider from './providers/SocketProvider.jsx';
 import App from './components/App.jsx';
 import 'core-js/stable/index.js';
 import 'regenerator-runtime/runtime.js';
-import '../node_modules/bootstrap/dist/css/bootstrap.css';
-import './css/main.css';
+import './css/style.scss';
 import rootReducer from './reducers/index.js';
+import './i18n.js';
 
 const store = configureStore({
   reducer: rootReducer,

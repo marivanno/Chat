@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useContext } from 'react';
 import { useFormik } from 'formik';
+import { useTranslation } from 'react-i18next';
 import { Modal, Button, Form } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { actions as modalActions } from '../slices/modalInfo.js';
@@ -13,6 +14,7 @@ const actions = {
 };
 
 const ModalWindow = ({ modal, closeModal }) => {
+  const { t } = useTranslation()
   const { isOpen, type } = modal;
   const { addNewChannel } = useContext(socketContext).socketActions;
   const handleClose = () => closeModal();
@@ -44,14 +46,14 @@ const ModalWindow = ({ modal, closeModal }) => {
     <Modal show={isOpen} onHide={handleClose} centered>
       <Form onSubmit={formik.handleSubmit}>
         <Modal.Header closeButton>
-          <Modal.Title>Хотите добавить новый канал?</Modal.Title>
+          <Modal.Title>{t('modalWindows.newChannel')}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <input
             name="newChannel"
             id="newChannel"
             ref={input}
-            placeholder="Введите название нового канала"
+            placeholder={t('modalWindows.placeholderNewChannel')}
             className="border-0 p-2 ps-2 form-control"
             onChange={formik.handleChange}
             value={formik.values.newChannel}
@@ -62,13 +64,13 @@ const ModalWindow = ({ modal, closeModal }) => {
             variant="secondary"
             onClick={handleClose}
           >
-            Закрыть
+            {t('modalWindows.buttonClose')}
           </Button>
           <Button
             type="submit"
             variant="primary"
           >
-            Добавить
+            {t('modalWindows.buttonAdd')}
           </Button>
         </Modal.Footer>
       </Form>

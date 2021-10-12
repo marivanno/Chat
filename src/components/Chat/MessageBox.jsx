@@ -10,7 +10,13 @@ const actions = {
   fetch: fetchMessages,
 };
 
-const MessageBox = ({ messages, fetch }) => {
+const MessageBox = (
+  {
+    messages,
+    fetch,
+    className,
+  },
+) => {
   useEffect(() => {
     fetch();
   }, []);
@@ -18,10 +24,10 @@ const MessageBox = ({ messages, fetch }) => {
 
   useEffect(() => {
     elBox.current.scrollTop = elBox.current.scrollHeight;
-  }, [messages])
+  }, [messages]);
 
   return (
-    <div id="message-box" ref={elBox} className="chat-messages overflow-auto px-5">
+    <div id="message-box" ref={elBox} className={className}>
       {messages.map((message, i) => {
         const { body, username } = message;
         return (

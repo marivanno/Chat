@@ -1,5 +1,4 @@
 import React from 'react';
-import { io } from 'socket.io-client';
 import { socketContext } from '../context/index.js';
 
 const SocketProvider = ({ children, socket }) => {

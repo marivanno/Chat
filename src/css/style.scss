@@ -1,0 +1,42 @@
+@import "~bootstrap/scss/bootstrap";
+
+@include media-breakpoint-up(_) {
+    .chennals-left {
+        display: none
+      }
+      .chennals-top {
+        display: block
+      }
+};
+
+@include media-breakpoint-up(lg) {
+    .chennals-left {
+        display: block
+      }
+      .chennals-top {
+        display: none
+      }
+};
+
+.form-floating>label {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.br {
+  border-radius: 0.8rem;
+}
+
+.invalid-tooltip-custom {
+  position: absolute;
+  left: 100px;
+  z-index: 5;
+  max-width: 100%;
+  padding: .25rem .5rem;
+  margin-top: .1rem;
+  font-size: .875rem;
+  color: #fff;
+  background-color: rgba(220,53,69,0.9);
+  border-radius: .25rem;
+}
