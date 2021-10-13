@@ -1,24 +1,31 @@
-# project-frontend-l4-server
+# mini slack chat
 
 [![Github Actions Status](https://github.com/hexlet-components/projects-frontend-l4-server/workflows/Node%20CI/badge.svg)](https://github.com/hexlet-components/projects-frontend-l4-server/actions)
 
-## Requirements
-
-* [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
-
 ## Install
 
+Registration and authorization. The project has a simple server that supports JWT technology.
+Create, rename and delete channels. These operations take place inside modals.
+Create and receive messages. Implemented via websockets.
+All forms validation and error handling. Used by formik.
+Redux Actions to work with state.
+
+## Tech Stack
+
+* [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
+* [React](https://reactjs.org/)
+* [socket.io-client](https://socket.io/)
+* [react-bootstrap](https://react-bootstrap.netlify.app/)
+* [i18next](https://www.i18next.com/)
+* [@reduxjs/toolkit](https://devcenter.heroku.com/articles/heroku-cli)
+* [Formik](https://formik.org/)https://webpack.js.org/
+* [webpack](https://webpack.js.org/)
+
+## Demo
+
 ```sh
-$ make install
+https://glacial-retreat-18952.herokuapp.com/
 ```
 
-## Run
+[![DEMO](https://i1.wp.com/generic.wordpress.soton.ac.uk/digital-learning/wp-content/uploads/sites/321/2017/11/DEMO.png?w=399)](https://glacial-retreat-18952.herokuapp.com/)
 
-```sh
-$ make start
-# open http://localhost:5000
-```
-
-[![Hexlet Ltd. logo](https://raw.githubusercontent.com/Hexlet/assets/master/images/hexlet_logo128.png)](https://ru.hexlet.io/pages/about?utm_source=github&utm_medium=link&utm_campaign=project-frontend-l4-server)
-
-This repository is created and maintained by the team and the community of Hexlet, an educational project. [Read more about Hexlet (in Russian)](https://ru.hexlet.io/pages/about?utm_source=github&utm_medium=link&utm_campaign=project-frontend-l4-server).
