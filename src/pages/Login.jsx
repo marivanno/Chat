@@ -1,4 +1,7 @@
 import React from 'react';
+import {
+  Container, Row, Col, Card,
+} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import img1 from '../img/img1.jpg';
@@ -8,29 +11,27 @@ const Login = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="container-fluid h-100">
-      <div className="row justify-content-center align-content-center h-100">
-        <div className="col-12 col-md-8 col-xxl-6">
-          <div className="card shadow-sm">
-            <div className="card-body row p-5">
-              <div className="col-12 col-md-6 d-flex align-items-center justify-content-center">
+    <Container fluid className="h-100">
+      <Row className="justify-content-center align-content-center h-100">
+        <Col className="col-12 col-md-8 col-xxl-6">
+          <Card className="shadow-sm">
+            <Card.Body className="p-5 row">
+              <Col className="col-12 col-md-6 d-flex align-items-center justify-content-center">
                 <img className="rounded-circle" src={img1} alt="Войти" />
-              </div>
+              </Col>
               <Loginform />
-            </div>
-            <div className="card-footer p-4">
-              <div className="text-right">
-                <span>
-                  {t('loginForm.dontHaveAnAccount')}
-                  {' '}
-                </span>
+            </Card.Body>
+            <Card.Footer className="p-4">
+              <Card.Text>
+                {t('loginForm.dontHaveAnAccount')}
+                {' '}
                 <Link to="/Signup">{t('loginForm.registration')}</Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+              </Card.Text>
+            </Card.Footer>
+          </Card>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 

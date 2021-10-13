@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Container } from 'react-bootstrap';
 import {
   BrowserRouter as Router,
   Switch,
@@ -7,7 +8,6 @@ import {
 } from 'react-router-dom';
 import Login from '../pages/Login.jsx';
 import Signup from '../pages/Signup.jsx';
-import NoMatch from './NoMatch.jsx';
 import Nav from './Nav.jsx';
 import Chat from '../pages/Chat.jsx';
 
@@ -27,9 +27,9 @@ const PrivateSection = ({ children, path }) => {
 };
 
 const App = () => (
-  <Router>
-    <AuthProvider>
-      <div className="d-flex flex-column h-100">
+  <Container className="d-flex flex-column h-100">
+    <Router>
+      <AuthProvider>
         <Nav />
         <Switch>
           <Route path="/login">
@@ -41,13 +41,10 @@ const App = () => (
           <PrivateSection exect path="/">
             <Chat />
           </PrivateSection>
-          <Route path="*">
-            <NoMatch />
-          </Route>
         </Switch>
-      </div>
-    </AuthProvider>
-  </Router>
+      </AuthProvider>
+    </Router>
+  </Container>
 );
 
 export default App;

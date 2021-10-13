@@ -1,5 +1,10 @@
 import React, { useContext } from 'react';
-import { Container, Nav as NavBootstrap, Button } from 'react-bootstrap';
+import {
+  Container,
+  Nav as NavBootstrap,
+  Button,
+  Row, Col,
+} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import LenguageSwitcher from './LenguageSwitcher.jsx';
@@ -19,8 +24,8 @@ const Nav = () => {
     <NavBootstrap className="shadow-sm navbar navbar-expand-lg navbar-light bg-white">
       <Container>
         <Link className="navbar-brand" to="/">Chat</Link>
-        <div className="d-flex justify-content-between">
-          <div className="d-flex">
+        <Row className="d-flex justify-content-between">
+          <Col className="d-flex">
             <LenguageSwitcher className="p-2" />
             {
           loginInformation.status ? (
@@ -31,8 +36,8 @@ const Nav = () => {
             </Button>
           ) : null
           }
-          </div>
-        </div>
+          </Col>
+        </Row>
       </Container>
     </NavBootstrap>
   );

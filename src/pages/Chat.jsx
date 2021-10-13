@@ -1,4 +1,5 @@
 import React, { useEffect, useContext } from 'react';
+import { Container, Col, Row } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import Header from '../components/Chat/Header.jsx';
 import Channels from '../components/Chat/Channels.jsx';
@@ -37,22 +38,22 @@ const Chat = ({
   }, []);
 
   return (
-    <div className="container h-100 my-4 overflow-hidden rounded shadow colum">
-      <div className="row h-100 bg-white">
+    <Container className="h-100 my-4 overflow-hidden rounded shadow colum">
+      <Row className="h-100 bg-white">
         <Channels className="chennals-left col-lg-2 border-end pt-5 px-0 bg-light" />
-        <div className="col-lg-10 col-md-12 p-0 h-100">
-          <div className="d-flex flex-column h-100">
-            <Channels className="chennals-top col-md-12 pt-5 px-0 bg-light" />
+        <Col className="col-lg-10 col-md-12 p-0 h-100">
+          <Col className="d-flex flex-column h-100">
+            <Channels className="chennals-top col-md-12 pt-4 px-0 bg-light shadow-sm" />
             <Header className="bg-light mb-4 p-3 shadow-sm small" />
             <MessageBox className="chat-messages overflow-auto px-5" />
             <FormForSendMessages className="mt-auto px-5 py-3" />
             {isOpen && type === 'addChannel' && <ModalWindow /> }
             {isOpen && type === 'removeChannel' && <ModalWindowRemove value={{ extra }} /> }
             {isOpen && type === 'renameChannel' && <ModalWindowRename value={{ extra }} /> }
-          </div>
-        </div>
-      </div>
-    </div>
+          </Col>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 

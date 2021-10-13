@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
-import { useFormik } from 'formik';
 import { useTranslation } from 'react-i18next';
+import { Form } from 'react-bootstrap';
+import { useFormik } from 'formik';
 import cn from 'classnames';
 import axios from 'axios';
 import routes from '../routes.js';
@@ -34,15 +35,15 @@ const SignupForm = () => {
     },
   });
 
-  const classesForFieldLogin = cn('form-control', 'br', { 'is-invalid': !!formik.errors.username });
-  const classesForFieldPass = cn('form-control', 'br', { 'is-invalid': !!formik.errors.password });
+  const classesForFieldLogin = cn('br', { 'is-invalid': !!formik.errors.username });
+  const classesForFieldPass = cn('br', { 'is-invalid': !!formik.errors.password });
   const classesForFieldconfimpass = cn('form-control', 'br', { 'is-invalid': !!formik.errors.confimpass });
 
   return (
-    <form className="col-12 col-md-6 mt-3 mt-mb-0" onSubmit={formik.handleSubmit}>
+    <Form className="col-12 col-md-6 mt-3 mt-mb-0" onSubmit={formik.handleSubmit}>
       <h1 className="text-center mb-4">{t('loginForm.header')}</h1>
-      <div className="form-floating mb-3 form-group">
-        <input
+      <Form.Group className="form-floating mb-3">
+        <Form.Control
           className={classesForFieldLogin}
           placeholder={t('registrationForm.placeholderNik')}
           autoComplete="username"
@@ -52,17 +53,15 @@ const SignupForm = () => {
           onChange={formik.handleChange}
           value={formik.values.username}
         />
-        <label htmlFor="username">{t('loginForm.placeholderNik')}</label>
+        <Form.Label htmlFor="username">{t('loginForm.placeholderNik')}</Form.Label>
         {formik.errors.username ? (
           <div className="invalid-tooltip-custom">
             {formik.errors.username}
           </div>
         ) : null }
-      </div>
-      <div
-        className="form-floating mb-3 form-group"
-      >
-        <input
+      </Form.Group>
+      <Form.Group className="form-floating mb-3">
+        <Form.Control
           className={classesForFieldPass}
           placeholder={t('registrationForm.placeholderPass')}
           id="password"
@@ -71,17 +70,17 @@ const SignupForm = () => {
           onChange={formik.handleChange}
           value={formik.values.password}
         />
-        <label htmlFor="pass">{t('registrationForm.placeholderPass')}</label>
+        <Form.Label htmlFor="pass">{t('registrationForm.placeholderPass')}</Form.Label>
         {formik.errors.password ? (
           <div className="invalid-tooltip-custom">
             {formik.errors.password}
           </div>
         ) : null }
-      </div>
+      </Form.Group>
       <div
-        className="form-floating mb-3 form-group"
+        className="form-floating mb-3"
       >
-        <input
+        <Form.Control
           className={classesForFieldconfimpass}
           placeholder={t('registrationForm.placeholderconfimPass')}
           id="confimpass"
@@ -90,7 +89,7 @@ const SignupForm = () => {
           onChange={formik.handleChange}
           value={formik.values.confimpass}
         />
-        <label htmlFor="passrepit">{t('registrationForm.placeholderconfimPass')}</label>
+        <Form.Label htmlFor="passrepit">{t('registrationForm.placeholderconfimPass')}</Form.Label>
         {formik.errors.confimpass ? (
           <div className="invalid-tooltip-custom">
             {formik.errors.confimpass}
@@ -104,7 +103,7 @@ const SignupForm = () => {
       >
         {t('registrationForm.singnUp')}
       </button>
-    </form>
+    </Form>
   );
 };
 

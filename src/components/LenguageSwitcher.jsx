@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Form } from 'react-bootstrap';
-import { useTranslation, Trans } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 const LenguageSwitcher = ({ className }) => {
   const { i18n } = useTranslation();
   const [state, toSwitchLeng] = useState(i18n.language);
 
-  useEffect(() => i18n.changeLanguage(state), [state])
+  useEffect(() => i18n.changeLanguage(state), [state]);
 
   const handlerSwitch = () => {
     toSwitchLeng((state) => {
@@ -16,7 +16,10 @@ const LenguageSwitcher = ({ className }) => {
   };
 
   return (
-    <Form className={className} onClick={handlerSwitch}>
+    <Form
+      className={className}
+      onClick={handlerSwitch}
+    >
       <Form.Check
         type="switch"
         id="custom-switch"

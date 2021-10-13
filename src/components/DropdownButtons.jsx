@@ -1,9 +1,18 @@
 import React from 'react';
 import { Dropdown } from 'react-bootstrap';
 
-const DropdownButtons = ({ children, value }) => {
+const DropdownButtons = (
+  {
+    children,
+    value,
+  },
+) => {
   const {
-    classesForDropdown, openModalRemoveChannel, openModalRenameChannel, id, name,
+    classesForDropdown,
+    openModalRemoveChannel,
+    openModalRenameChannel,
+    id,
+    name,
   } = value;
 
   const handlerRemoveChannel = () => {
