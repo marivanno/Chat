@@ -9,7 +9,7 @@ Create and receive messages. Implemented via websockets.
 All forms validation and error handling. Used by formik.
 Redux Actions to work with state.
 
-(https://raw.githubusercontent.com/marivanno/frontend-project-lvl4/main/src/img/screen.png)
+![SCREEN](https://raw.githubusercontent.com/marivanno/frontend-project-lvl4/main/src/img/screen.png)
 
 ## Tech Stack
 
