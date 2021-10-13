@@ -1,8 +1,8 @@
-# mini slack chat
+# Chat
 
 [![Github Actions Status](https://github.com/hexlet-components/projects-frontend-l4-server/workflows/Node%20CI/badge.svg)](https://github.com/hexlet-components/projects-frontend-l4-server/actions)
 
-## Install
+## About
 
 Registration and authorization. The project has a simple server that supports JWT technology.
 Create, rename and delete channels. These operations take place inside modals.
@@ -18,7 +18,7 @@ Redux Actions to work with state.
 * [react-bootstrap](https://react-bootstrap.netlify.app/)
 * [i18next](https://www.i18next.com/)
 * [@reduxjs/toolkit](https://devcenter.heroku.com/articles/heroku-cli)
-* [Formik](https://formik.org/)https://webpack.js.org/
+* [Formik](https://formik.org/)
 * [webpack](https://webpack.js.org/)
 
 ## Demo
