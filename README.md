@@ -2,6 +2,7 @@
 
 [![Github Actions Status](https://github.com/hexlet-components/projects-frontend-l4-server/workflows/Node%20CI/badge.svg)](https://github.com/hexlet-components/projects-frontend-l4-server/actions)
 
+[![SCREEN](https://raw.githubusercontent.com/marivanno/frontend-project-lvl4/main/src/img/screen.png)]
 ## About
 
 Registration and authorization. The project has a simple server that supports JWT technology.
@@ -22,7 +23,6 @@ Redux Actions to work with state.
 * [webpack](https://webpack.js.org/)
 
 ## Demo
-
 ```sh
 https://glacial-retreat-18952.herokuapp.com/
 ```
