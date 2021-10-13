@@ -1,8 +1,7 @@
 import React from 'react';
-import { Container, Nav } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { selectActiveChannelMessages } from '../../slices/messageInfo.js';
+import { selectActiveChannelMessages } from '../../slices/messagesInfo.js';
 import { getCurrentChannel } from '../../slices/channelsInfo.js';
 
 const mapStateToProps = (state) => ({
@@ -11,7 +10,9 @@ const mapStateToProps = (state) => ({
   messages: selectActiveChannelMessages(state),
 });
 
-const Header = ({ channelsInfo, messages, currentChannel, className }) => {
+const Header = ({
+  channelsInfo, messages, currentChannel, className,
+}) => {
   const { t } = useTranslation();
   const { channels } = channelsInfo;
   const hasChannels = () => channels.length !== 0;

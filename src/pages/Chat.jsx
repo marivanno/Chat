@@ -9,7 +9,7 @@ import ModalWindow from '../components/ModalWindow.jsx';
 import ModalWindowRemove from '../components/ModalWindowRemove.jsx';
 import ModalWindowRename from '../components/ModalWindowRename.jsx';
 import { socketContext } from '../context/index.js';
-import { actions as massageInfoActions } from '../slices/messageInfo.js';
+import { actions as massageInfoActions } from '../slices/messagesInfo.js';
 import { actions as channelsInfoActions } from '../slices/channelsInfo.js';
 
 const actions = {
@@ -45,7 +45,7 @@ const Chat = ({
           <Col className="d-flex flex-column h-100">
             <Channels className="chennals-top col-md-12 pt-4 px-0 bg-light shadow-sm" />
             <Header className="bg-light mb-4 p-3 shadow-sm small" />
-            <MessageBox className="chat-messages overflow-auto px-5" />
+            <MessageBox className="overflow-auto px-5" />
             <FormForSendMessages className="mt-auto px-5 py-3" />
             {isOpen && type === 'addChannel' && <ModalWindow /> }
             {isOpen && type === 'removeChannel' && <ModalWindowRemove value={{ extra }} /> }

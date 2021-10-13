@@ -1,6 +1,8 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useContext } from 'react';
+import cn from 'classnames';
 import { connect } from 'react-redux';
-import { fetchMessages, selectActiveChannelMessages } from '../../slices/messageInfo.js';
+import { fetchMessages, selectActiveChannelMessages } from '../../slices/messagesInfo.js';
+import { authContext } from '../../context/index.js';
 
 const mapStateToProps = (state) => ({
   messages: selectActiveChannelMessages(state),
@@ -17,6 +19,7 @@ const MessageBox = (
     className,
   },
 ) => {
+  const { loginInformation } = useContext(authContext);
   useEffect(() => {
     fetch();
   }, []);
@@ -28,14 +31,42 @@ const MessageBox = (
 
   return (
     <div id="message-box" ref={elBox} className={className}>
-      {messages.map((message, i) => {
-        const { body, username } = message;
+      {messages.map(({
+        body, username, id, time,
+      }) => {
+        const currentUserName = loginInformation.username;
+        const classesForAlign = cn('d-flex',
+          { 'justify-content-start': currentUserName === username },
+          { 'justify-content-end': currentUserName !== username });
+        const classNameForBackgraundMessage = cn({ 'message-left': currentUserName === username },
+          { 'message-right': currentUserName !== username });
         return (
-          <div key={i} className="text-break mb-2">
-            <b>{username}</b>
-            :
-            {' '}
-            {body}
+          <div key={id} className={classesForAlign}>
+            {currentUserName === username
+              ? (
+                <>
+                  <div>
+                    <b>{username}</b>
+                    {' '}
+                  </div>
+                  <div className={classNameForBackgraundMessage}>
+                    <div className="d-flex fw-light justify-content-end">{time}</div>
+                    <div className="fst-italic">{body}</div>
+                  </div>
+                </>
+              )
+              : (
+                <>
+                  <div className={classNameForBackgraundMessage}>
+                    <div className="d-flex fw-light justify-content-start">{time}</div>
+                    <div className="d-flex fw-light justify-content-end fst-italic">{body}</div>
+                  </div>
+                  <div>
+                    <b>{username}</b>
+                    {' '}
+                  </div>
+                </>
+              )}
           </div>
         );
       })}

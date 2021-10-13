@@ -15,9 +15,7 @@ const buildState = (defaultState) => {
       { id: generalChannelId, name: 'general', removable: false },
       { id: randomChannelId, name: 'random', removable: false },
     ],
-    messages: [
-      { body: 'Привет это первое сообщение', channelId: 1, username: 'admin' },
-    ],
+    messages: [],
     currentChannelId: generalChannelId,
     users: [
       { id: 1, username: 'admin', password: 'admin' },
@@ -44,9 +42,8 @@ export default (app, defaultState = {}) => {
   const state = buildState(defaultState);
 
   app.io.on('connect', (socket) => {
-    console.log({ 'socket.id': socket.id });
 
-    socket.on('newMessage', (message, acknowledge = _.noop) => {
+  socket.on('newMessage', (message, acknowledge = _.noop) => {
       const messageWithId = {
         ...message,
         id: getNextId(),

@@ -4,7 +4,8 @@ import { useFormik } from 'formik';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next'
 import { authContext, socketContext } from '../../context/index.js';
-import { actions } from '../../slices/messageInfo.js';
+import { actions } from '../../slices/messagesInfo.js';
+import useDate from '../../hooks/useDate.js';
 
 const FormForSendMessages = ({
   channelsInfo, 
@@ -13,6 +14,7 @@ const FormForSendMessages = ({
   const { t } = useTranslation();
   const { username } = useContext(authContext).loginInformation;
   const { addNewMessage } = useContext(socketContext).socketActions;
+  const { getDate } = useDate();
   const inputMessage = useRef(null);
 
   useEffect(() => {
@@ -25,6 +27,7 @@ const FormForSendMessages = ({
       body: message,
       channelId: channelsInfo.currentChannelId,
       username,
+      time: getDate(),
     };
     addNewMessage(messageForSend);
   };

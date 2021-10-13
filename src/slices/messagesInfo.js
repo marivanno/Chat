@@ -5,7 +5,7 @@ import routes from '../routes.js';
 
 
 export const fetchMessages = createAsyncThunk(
-  'messageInfo/fetchMessages',
+  'messagesInfo/fetchMessages',
   async () => {
     const authHeaders = `Bearer ${getAuthInformation().token}`;
     const resp = await axios.get(routes.dataPath(), { headers: { Authorization: authHeaders } });
@@ -13,8 +13,8 @@ export const fetchMessages = createAsyncThunk(
   },
 );
 
-const messageInfo = createSlice({
-  name: 'messageInfo',
+const messagesInfo = createSlice({
+  name: 'messagesInfo',
   initialState: {
     messages: [],
     status: null,
@@ -48,5 +48,5 @@ export const selectActiveChannelMessages = createSelector(
   (messages, id) => messages.filter((message) => message.channelId === id),
 );
 
-export const { actions } = messageInfo;
-export default messageInfo.reducer;
+export const { actions } = messagesInfo;
+export default messagesInfo.reducer;
