@@ -1,8 +1,6 @@
 # Chat
 
 [![Github Actions Status](https://github.com/hexlet-components/projects-frontend-l4-server/workflows/Node%20CI/badge.svg)](https://github.com/hexlet-components/projects-frontend-l4-server/actions)
-
-[![SCREEN](https://raw.githubusercontent.com/marivanno/frontend-project-lvl4/main/src/img/screen.png)]
 ## About
 
 Registration and authorization. The project has a simple server that supports JWT technology.
@@ -10,6 +8,8 @@ Create, rename and delete channels. These operations take place inside modals.
 Create and receive messages. Implemented via websockets.
 All forms validation and error handling. Used by formik.
 Redux Actions to work with state.
+
+(https://raw.githubusercontent.com/marivanno/frontend-project-lvl4/main/src/img/screen.png)
 
 ## Tech Stack
 
