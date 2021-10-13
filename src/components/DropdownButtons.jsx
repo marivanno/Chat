@@ -26,7 +26,6 @@ const DropdownButtons = (
     <Dropdown
       className="d-flex"
       role="group"
-      drop="end"
     >
       { children }
       <Dropdown.Toggle

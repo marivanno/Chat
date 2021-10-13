@@ -1,20 +1,26 @@
 @import "~bootstrap/scss/bootstrap";
 
 @include media-breakpoint-up(_) {
-    .chennals-left {
-        display: none
+      .chennals-left {
+        display: none;
+      }
+      .hdr {
+        display: none;
       }
       .chennals-top {
-        display: block
+        display: block;
       }
 };
 
 @include media-breakpoint-up(lg) {
     .chennals-left {
-        display: block
+        display: block;
       }
       .chennals-top {
-        display: none,
+        display: none;
+      }
+      .hdr {
+        display: block;
       }
 };
 

@@ -44,7 +44,7 @@ const Chat = ({
         <Col className="col-lg-10 col-md-12 p-0 h-100">
           <Col className="d-flex flex-column h-100">
             <Channels className="chennals-top col-md-12 pt-4 px-0 bg-light shadow-sm" />
-            <Header className="bg-light mb-4 p-3 shadow-sm small" />
+            <Header className="hdr bg-light mb-4 p-3 shadow-sm small" />
             <MessageBox className="overflow-auto px-5" />
             <FormForSendMessages className="mt-auto px-5 py-3" />
             {isOpen && type === 'addChannel' && <ModalWindow /> }
