@@ -1,6 +1,6 @@
 export default {
   loginForm: {
-    header: 'Sign in',
+    header: 'Log in',
     placeholderNik: 'Your nikname',
     placeholderPass: 'Password',
     dontHaveAnAccount: 'Don\'t have an account?',
