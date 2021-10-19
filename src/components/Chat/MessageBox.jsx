@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useContext } from 'react';
+import { Row } from 'react-bootstrap';
 import cn from 'classnames';
 import { connect } from 'react-redux';
 import { fetchMessages, selectActiveChannelMessages } from '../../slices/messagesInfo.js';
@@ -23,6 +24,7 @@ const MessageBox = (
   useEffect(() => {
     fetch();
   }, []);
+
   const elBox = useRef([]);
 
   useEffect(() => {
@@ -30,7 +32,7 @@ const MessageBox = (
   }, [messages]);
 
   return (
-    <div id="message-box" ref={elBox} className={className}>
+    <Row ref={elBox} className={className}>
       {messages.map(({
         body, username, id, time,
       }) => {
@@ -70,7 +72,7 @@ const MessageBox = (
           </div>
         );
       })}
-    </div>
+    </Row>
   );
 };
 

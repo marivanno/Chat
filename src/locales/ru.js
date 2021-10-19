@@ -34,5 +34,16 @@ export default {
     buttonRemove: 'Удалить',
     buttonRename: 'Переименовать',
   },
+  errors: {
+    userExists: 'Пользователь существует',
+    somethingWrong: 'Что-то пошло не так',
+    updatePage: 'Вы можете попробовать обновить страницу',
+    wrongPassOrLogin: 'Не правильный логин или пароль',
+    tooShort: 'Логин слишком короткий',
+    passTooShort: 'Пароль слишком короткий',
+    liginHasToHas: 'Логин должен содержать только буквы и цифры',
+    passwordMissMatch: 'Пароли не совпадают',
+    reqToFill: 'Необходимо заполнить',
+  },
 
 };

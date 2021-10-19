@@ -22,7 +22,7 @@ const channelsInfo = createSlice({
     error: null,
   },
   reducers: {
-    addChannels: (state, action) => {
+    addChannel: (state, action) => {
       state.channels.push(action.payload);
       state.currentChannelId = action.payload.id;
     },

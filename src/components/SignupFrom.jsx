@@ -5,10 +5,11 @@ import { useFormik } from 'formik';
 import cn from 'classnames';
 import axios from 'axios';
 import routes from '../routes.js';
-import { signupSchema } from '../validation/validation.js';
+import useSchema from '../validation/validation.js';
 import { authContext } from '../context/index.js';
 
 const SignupForm = () => {
+  const { signupSchema } = useSchema();
   const { logIn } = useContext(authContext);
   const { t } = useTranslation();
   const formik = useFormik({
@@ -26,10 +27,10 @@ const SignupForm = () => {
       } catch (error) {
         if (error.response.data.message === 'Conflict') {
           formik.handleReset();
-          formik.setErrors({ username: 'Пользователь существует', password: 'Пользователь существует' });
+          formik.setErrors({ username: t('errors.userExists'), password: t('errors.userExists'), });
         } else {
           formik.handleReset();
-          formik.setErrors({ username: 'Что-то пошло не так, попробуйте снова', password: 'скорее всего что-то с вашим соединением с интернетом' });
+          formik.setErrors({ username: t('errors.somethingWrong'), password: t('errors.updatePage') });
         }
       }
     },

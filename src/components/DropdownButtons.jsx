@@ -1,5 +1,6 @@
 import React from 'react';
 import { Dropdown } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
 
 const DropdownButtons = (
   {
@@ -14,7 +15,7 @@ const DropdownButtons = (
     id,
     name,
   } = value;
-
+  const { t } = useTranslation();
   const handlerRemoveChannel = () => {
     openModalRemoveChannel(id);
   };
@@ -32,10 +33,9 @@ const DropdownButtons = (
         variant="btn"
         className={classesForDropdown}
       />
-
       <Dropdown.Menu>
-        <Dropdown.Item onClick={handlerRemoveChannel}>Удалить</Dropdown.Item>
-        <Dropdown.Item onClick={handlerRenameChannel}>Переименовать</Dropdown.Item>
+        <Dropdown.Item onClick={handlerRemoveChannel}>{t('modalWindows.buttonRemove')}</Dropdown.Item>
+        <Dropdown.Item onClick={handlerRenameChannel}>{t('modalWindows.buttonRename')}</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
   );

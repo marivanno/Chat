@@ -1,14 +1,15 @@
 import React, { useContext } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { useFormik } from 'formik';
+import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 import axios from 'axios';
-import { useTranslation } from 'react-i18next';
-import { loginSchema } from '../validation/validation.js';
 import routes from '../routes.js';
+import useSchema from '../validation/validation.js';
 import { authContext } from '../context/index.js';
 
 const Loginform = () => {
+  const { loginSchema } = useSchema();
   const { logIn } = useContext(authContext);
   const { t } = useTranslation();
   const formik = useFormik({
@@ -24,7 +25,7 @@ const Loginform = () => {
         logIn(token, username);
       } catch {
         formik.handleReset();
-        formik.setErrors({ username: 'Не верный логин или пароль', password: 'Не верный логин или пароль' });
+        formik.setErrors({ username: t('errors.wrongPassOrLogin'), password: t('errors.wrongPassOrLogin') });
       }
     },
   });

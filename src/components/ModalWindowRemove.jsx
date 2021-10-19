@@ -13,13 +13,13 @@ const actions = {
 };
 
 const ModalWindowRemove = ({ modal, closeModal, value }) => {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
   const { isOpen } = modal;
   const { extra } = value;
   const { removeChannel } = useContext(socketContext).socketActions;
   const handleClose = () => closeModal();
 
-  const handlerSubmit = () => {
+  const handleSubmit = () => {
     removeChannel({ id: extra });
     console.log(removeChannel);
     handleClose();
@@ -39,7 +39,7 @@ const ModalWindowRemove = ({ modal, closeModal, value }) => {
             {t('modalWindows.buttonClose')}
           </Button>
           <Button
-            onClick={handlerSubmit}
+            onClick={handleSubmit}
             variant="danger"
           >
             {t('modalWindows.buttonRemove')}

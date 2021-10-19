@@ -9,6 +9,7 @@ import 'regenerator-runtime/runtime.js';
 import './css/style.scss';
 import rootReducer from './reducers/index.js';
 import './i18n.js';
+import './validation/validation.js';
 
 const store = configureStore({
   reducer: rootReducer,

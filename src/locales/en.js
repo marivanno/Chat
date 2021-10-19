@@ -35,5 +35,15 @@ export default {
     buttonRemove: 'Remove',
     buttonRename: 'Rename',
   },
-
+  errors: {
+    userExists: 'User exists',
+    somethingWrong: 'Something went wrong try again',
+    updatePage: 'You can try to update page',
+    wrongPassOrLogin: 'Your login or password is not correct',
+    tooShort: 'Login is too short',
+    passTooShort: 'Password is too short',
+    loginHasToHas: 'login has to has only letters (Aa-Zz) and numbers.',
+    passwordMissMatch: 'Password mismatch',
+    reqToFill: 'Required to fill',
+  },
 };

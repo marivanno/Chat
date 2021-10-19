@@ -28,7 +28,7 @@ const ModalWindow = ({ modal, closeModal }) => {
 
   const input = useRef();
   useEffect(() => {
-    setTimeout(() => type === 'removeChannel' || input.current.focus());
+    setTimeout(() => type === 'addChennal' || input.current.focus());
   }, []);
 
   const formik = useFormik({

@@ -14,7 +14,7 @@ import { actions as channelsInfoActions } from '../slices/channelsInfo.js';
 
 const actions = {
   addMessage: massageInfoActions.addMessage,
-  addChannel: channelsInfoActions.addChannels,
+  addChannel: channelsInfoActions.addChannel,
   removeChannel: channelsInfoActions.removeChannel,
   renameChannel: channelsInfoActions.renameChannel,
 };
