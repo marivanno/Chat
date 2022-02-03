@@ -14,14 +14,14 @@
 
 ## Tech Stack
 
-* [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
 * [React](https://reactjs.org/)
-* [socket.io-client](https://socket.io/)
-* [react-bootstrap](https://react-bootstrap.netlify.app/)
+* [React-bootstrap](https://react-bootstrap.netlify.app/)
+* [Socket.io-client](https://socket.io/)
+* [Yap](https://www.npmjs.com/package/yup)
 * [i18next](https://www.i18next.com/)
 * [@reduxjs/toolkit](https://devcenter.heroku.com/articles/heroku-cli)
 * [Formik](https://formik.org/)
-* [webpack](https://webpack.js.org/)
+* [Webpack](https://webpack.js.org/)
 
 ## Demo
 ```sh
